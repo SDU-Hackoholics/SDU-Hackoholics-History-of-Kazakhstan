@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.history_of_kazakhstan.databinding.FragmentLeaderboardBinding
 
 class LeaderboardFragment : Fragment() {
@@ -22,16 +21,12 @@ class LeaderboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val leaderboardViewModel =
-            ViewModelProvider(this).get(LeaderboardViewModel::class.java)
 
         _binding = FragmentLeaderboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textLeaderboard
-        leaderboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        // TODO
+
         return root
     }
 

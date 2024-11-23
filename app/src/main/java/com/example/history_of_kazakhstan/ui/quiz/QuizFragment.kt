@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.history_of_kazakhstan.databinding.FragmentQuizBinding
 
 class QuizFragment : Fragment() {
@@ -22,16 +21,12 @@ class QuizFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val quizViewModel =
-            ViewModelProvider(this).get(QuizViewModel::class.java)
 
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textQuiz
-        quizViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        // TODO
+
         return root
     }
 
