@@ -10,33 +10,61 @@
 
     <TextView
         android:id="@+id/text_welcome"
-        android:layout_width="110dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="Welcome!"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/welcome"
+        android:fontFamily="@font/poppins_black"
+        android:textAlignment="textStart"
+        android:textSize="36sp"
+        android:textColor="?android:attr/colorForeground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_have_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_welcome"
+        app:srcCompat="@drawable/logo_v_900x600" />
+
     <Button
         android:id="@+id/button_have_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I already have an account"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/login"
+        android:fontFamily="@font/poppins_bold"
+        android:backgroundTint="?attr/colorPrimary"
+        app:cornerRadius="50dp"
         app:layout_constraintBottom_toTopOf="@+id/button_create_account"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_create_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create an account"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/registration"
+        android:fontFamily="@font/poppins_bold"
+        android:backgroundTint="?attr/colorSecondary"
+        app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
