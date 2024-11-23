@@ -13,6 +13,8 @@ class StartActivity : AppCompatActivity() {
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         binding.buttonHaveAccount.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
