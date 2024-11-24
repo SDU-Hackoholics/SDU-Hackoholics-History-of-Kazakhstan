@@ -244,4 +244,11 @@ class DatabaseHandler {
     }
 
 
+    fun transformDateString(input: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault())
+        val date = inputFormat.parse(input)
+        return outputFormat.format(date)
+    }
+
 }

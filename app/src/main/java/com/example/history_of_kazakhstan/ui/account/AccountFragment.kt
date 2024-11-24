@@ -1,6 +1,8 @@
 package com.example.history_of_kazakhstan.ui.account
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +19,7 @@ class AccountFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,6 +31,8 @@ class AccountFragment : Fragment() {
 
 
         binding.usernameHead.text = ""
+        binding.accountCreated.text = ""
+        binding.lastEnter.text = ""
 
 
         return root
@@ -38,7 +43,14 @@ class AccountFragment : Fragment() {
         super.onResume()
 
         // Update the usernameHead text when the Fragment becomes visible
-        binding.usernameHead.text = DatabaseHandler().getKeyValue(requireContext(), "current_user")
+        val username = DatabaseHandler().getKeyValue(requireContext(), "current_user").toString()
+
+        val accountCreated = DatabaseHandler().transformDateString(DatabaseHandler().getUserKeyValue(requireContext(), username, "account_created").toString())
+        val lastEnter = DatabaseHandler().transformDateString(DatabaseHandler().getUserKeyValue(requireContext(), username, "last_enter").toString())
+
+        binding.usernameHead.text = username
+        binding.accountCreated.text = "Account created:\n\t$accountCreated"
+        binding.lastEnter.text = "Last entered:\n\t$lastEnter"
     }
 
 

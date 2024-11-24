@@ -18,7 +18,11 @@ class StartActivity : AppCompatActivity() {
 
         DatabaseHandler().checkAndCreateJsonFile(applicationContext)
 
-        if (DatabaseHandler().getKeyValue(applicationContext, "current_user") != "") {
+        val current_user = DatabaseHandler().getKeyValue(applicationContext, "current_user").toString()
+
+        if (current_user != "") {
+            DatabaseHandler().updateLastEnter(applicationContext, current_user)
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
