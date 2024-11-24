@@ -2,6 +2,7 @@ package com.example.history_of_kazakhstan
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import androidx.appcompat.app.AppCompatActivity
 import com.example.history_of_kazakhstan.databinding.ActivityStartBinding
 
@@ -14,6 +15,13 @@ class StartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        DatabaseHandler().checkAndCreateJsonFile(applicationContext)
+
+        if (DatabaseHandler().getKeyValue(applicationContext, "current_user") != "") {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.buttonHaveAccount.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
